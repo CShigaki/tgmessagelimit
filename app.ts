@@ -69,7 +69,7 @@ const run = async () => {
   });
 
   bot.on('callback_query', async (query) => {
-    if (!(await userHasAdminPermissions(bot, query, query.message.from.id))) {
+    if (!(await userHasAdminPermissions(bot, query, query.from.id))) {
       return;
     }
 
@@ -124,17 +124,19 @@ const run = async () => {
   };
 
   setInterval(() => {
+    console.log('Resetting message count.');
     chatListAndTheirCounts.forEach((chat) => {
       resetAllMessageLimits(chat._id);
     });
-  }, 60000);
+  }, 60*60*24*1000);
 
   setInterval(() => {
+    console.log('Syncing message counts.');
     chatListAndTheirCounts.forEach((chat) => {
       chat.markModified('membersAndCounts');
       chat.save();
     });
-  }, 60*60*24*1000);
+  }, 40000);
 };
 
 run()
