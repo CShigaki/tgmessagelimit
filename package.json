@@ -1,0 +1,24 @@
+{
+  "name": "tghorariooficial",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:CShigaki/tghorariooficial.git",
+  "author": "Celso Takeo Shigaki <celsomaker@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsc && node dist/app.js",
+    "dev": "ts-node-dev --respawn --transpile-only app.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@types/node-telegram-bot-api": "^0.51.1",
+    "mongoose": "^5.12.2",
+    "node-telegram-bot-api": "^0.51.0",
+    "telegram-keyboard-wrapper": "^1.0.1",
+    "typescript": "^4.2.3"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.1.6",
+    "tslint": "^6.1.3"
+  }
+}
