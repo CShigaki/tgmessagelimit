@@ -129,14 +129,6 @@ const run = async () => {
       resetAllMessageLimits(chat._id);
     });
   }, 60*60*24*1000);
-
-  setInterval(() => {
-    console.log('Syncing message counts.');
-    chatListAndTheirCounts.forEach((chat) => {
-      chat.markModified('membersAndCounts');
-      chat.save();
-    });
-  }, 40000);
 };
 
 run()
