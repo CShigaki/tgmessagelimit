@@ -39,6 +39,13 @@ const run = async () => {
       return;
     }
 
+    // This is not in the typing of the lib I'm using. Ignore for now
+    // Ignore messages sent from channels.
+    // @ts-ignore
+    if (msg.sender_chat) {
+      return;
+    }
+
     if ((await userHasAdminPermissions(bot, msg, msg.from.id)) || (await !userHasAdminPermissions(bot, msg, myId))) {
       return;
     }
